@@ -1,5 +1,7 @@
 # meet
 
+### Meet is a serverless progressive web application with React using a test driven development (TDD) technique.  The application uses the Google calendar API to fetch upcoming events.
+
 ## Feature 2: Show/Hide Event Details 
 Scenario 1: An event element is collapsed by default. 
 Given a user wants to see event details.

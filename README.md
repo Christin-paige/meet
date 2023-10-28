@@ -1,6 +1,8 @@
-# meet
+# The Meet App
 
 ### Meet is a serverless progressive web application (WPA) with React using a test driven development (TDD) technique.  The application uses the Google calendar API to fetch upcoming events.
+
+The Meet App will use a serverless function to take care of the logic obtaining the access token for authorization.  It will also be able to scale automatically as the user base grows or the amount of usage increases.
 
 ## Feature 1: Filter Events By City 
 ### Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities. 

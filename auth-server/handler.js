@@ -18,7 +18,7 @@ module.exports.getAuthURL = async () => {
 
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: "offline",
-    scope: SCOPES,
+    scope: SCOPES
   });
 
   return {
@@ -48,7 +48,8 @@ module.exports.getAccessToken = async (event) => {
       return resolve(response);
     });
   })
-    .then((results) => {
+  
+    .then((results) => { 
       // Respond with OAuth token 
       return {
         statusCode: 200,
@@ -56,7 +57,7 @@ module.exports.getAccessToken = async (event) => {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true,
         },
-        body: JSON.stringify(results),
+        body: JSON.stringify(results), 
       };
     })
     .catch((error) => {
@@ -82,11 +83,10 @@ module.exports.getCalendarEvents = async (event) => {
       },
       (error, response) => {
         if (error) {
-          reject(error);
-        } else {
-          resolve(response);
+          return reject(error);
         }
-      }
+          return resolve(response);
+        }
     );
     
   })

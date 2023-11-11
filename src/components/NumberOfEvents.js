@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const NumberOfEvents = ({ }) => {
+const NumberOfEvents = ({}) => {
 
   const [number, setNumber] = useState(32);
 
@@ -16,6 +16,7 @@ const NumberOfEvents = ({ }) => {
       <label htmlFor="number-of-events-input">Number of Events: </label>
       <input
         type="text"
+        defaultValue="32"
         id="number-of-events-input"
         className="number-of-events-input"
         value={number}

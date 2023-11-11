@@ -15,8 +15,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     const value = event.target.value;
     const filteredLocations = allLocations ? allLocations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
-    })
-    : [];
+    }) : [];
 
     setQuery(value);
     setSuggestions(filteredLocations);
@@ -27,8 +26,6 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     setShowSuggestions(false); // to hide the list
     setCurrentCity(value);
   };
-
- 
 
   return (
     <div id="city-search">
@@ -53,7 +50,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
      : null
      }
     </div>
-  );
-};
+  )
+}
 
 export default CitySearch;

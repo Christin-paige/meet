@@ -1,7 +1,8 @@
-import { render } from '@testing-library/react';
+import { render, within } from '@testing-library/react';
 import { getEvents } from '../api';
 import NumberOfEvents from '../components/NumberOfEvents';
 import { userEvent } from '@testing-library/user-event';
+import App from '../App';
 
 
 describe('<NumberOfEvents /> component', () => {
@@ -30,8 +31,24 @@ describe('<NumberOfEvents /> component', () => {
         await user.type(numberTextBox,'{backspace}{backspace}32');
 
     });
-    
-   
+});
+//integration tests
+describe ('<NumberOfEvents /> integration', () => {
+    test('number of events rendered matches number of events input by user.', async() => {
+        const user = userEvent.setup();
+        const AppComponent = render(<App />);
+        const AppDOM = AppComponent.container.firstChild;
+        const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events')
+        const numberTextBox = within(NumberOfEventsDOM).queryByRole('textbox');
+
+        await user.type(numberTextBox, '{backspace}{backspace}10');
+        expect(numberTextBox).toHaveValue('10');
+
+       
+
+       
+        
+    });
 });
 
 

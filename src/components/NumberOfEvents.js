@@ -1,10 +1,11 @@
 // src/components/NumberOfEvents.js
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const NumberOfEvents = ({}) => {
+const NumberOfEvents = ({ setCurrentNOE }) => {
 
   const [number, setNumber] = useState(32);
+
 
   const handleInputChanged = (event) => {
     const value = event.target.value;
@@ -16,7 +17,6 @@ const NumberOfEvents = ({}) => {
       <label htmlFor="number-of-events-input">Number of Events: </label>
       <input
         type="text"
-        defaultValue="32"
         id="number-of-events-input"
         className="number-of-events-input"
         value={number}

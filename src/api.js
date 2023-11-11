@@ -54,7 +54,8 @@ export const getEvents = async () => {
     if (result) {
       return result.events;
     } else return null; 
-  };
+  }
+};
 
 export const getAccessToken = async () => {
   const accessToken = localStorage.getItem('access_token');

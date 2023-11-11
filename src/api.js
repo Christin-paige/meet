@@ -16,7 +16,7 @@ export const extractLocations = (events) => {
   return locations;
 };
 
-export const extractSummaries = (events) => {
+/*export const extractSummaries = (events) => {
   const extractedSummaries = events.map((event) => event.summary);
   const summaries = [...new Set(extractedSummaries)];
   return summaries;
@@ -33,6 +33,8 @@ export const extractDescriptions = (events) => {
   const descriptions = [...new Set(extractedDescriptions)];
   return descriptions;
 };
+*/
+
 
 /**
  *
@@ -109,5 +111,5 @@ const checkToken = async (accessToken) => {
     access_token && localStorage.setItem("access_token", access_token);
   
     return access_token;
-  }
+  };
 

@@ -40,19 +40,18 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
         onFocus={() => setShowSuggestions(true)}
         onChange={handleInputChanged}
       />
-      {showSuggestions ? (
+      {showSuggestions ? 
       <ul className="suggestions">
         {suggestions.map((suggestion) => {
-            return (
-            <li onClick={handleItemClicked} 
+            return <li onClick={handleItemClicked} 
             key={suggestion}>{suggestion}</li>
-            );
           })}
           <li key='See all cities' onClick={handleItemClicked}>
             <b>See all cities</b>
           </li>
       </ul> 
-      ) : null}
+     : null
+     }
     </div>
   );
 };

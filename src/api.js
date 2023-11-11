@@ -50,7 +50,7 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url =  "https://b81trm0esh.execute-api.us-east-1.amazonaws.com/dev/api/get-events/" + "/" + token;
+    const url =  'https://b81trm0esh.execute-api.us-east-1.amazonaws.com/dev/api/get-events' + '/' + token;
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
@@ -64,12 +64,12 @@ export const getAccessToken = async () => {
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
   if (!accessToken || tokenCheck.error) {
-    await localStorage.removeItem("access_token");
+    await localStorage.removeItem('access_token');
     const searchParams = new URLSearchParams(window.location.search);
     const code = await searchParams.get("code");
     if (!code) {
       const response = await fetch(
-        "https://b81trm0esh.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
+        'https://b81trm0esh.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url'
       );
       const result = await response.json();
       const { authUrl } = result;
@@ -93,19 +93,19 @@ const checkToken = async (accessToken) => {
     if (window.history.pushState && window.location.pathname) {
       newurl =
         window.location.protocol +
-        "//" +
+        '//' +
         window.location.host +
         window.location.pathname;
-      window.history.pushState("", "", newurl);
+      window.history.pushState('', '', newurl);
     } else {
-      newurl = window.location.protocol + "//" + window.location.host;
-      window.history.pushState("", "", newurl);
+      newurl = window.location.protocol + '//'+ window.location.host;
+      window.history.pushState('', '', newurl);
     }
   };
   const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
-    const response = await fetch(
-      'https://b81trm0esh.execute-api.us-east-1.amazonaws.com/dev/api/token/' + '/' + encodeCode
+    const response = await fetch (
+      'https://b81trm0esh.execute-api.us-east-1.amazonaws.com/dev/api/token' + '/' + encodeCode
     );
     const { access_token } = await response.json();
     access_token && localStorage.setItem("access_token", access_token);

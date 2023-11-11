@@ -11,8 +11,8 @@ const Event = ({ event }) => {
   };
 
   return ( 
-    <li className="event-title">
-    <div id="event-list">{event.summary}</div>
+    <li className="eventTitle">
+    <div id="eventList">{event.summary}</div>
     <div>{event.created}</div>
     <div>{event.location}</div>
    
@@ -29,7 +29,7 @@ const Event = ({ event }) => {
    >hide details</button>
 </div>
 
-   {showDetails && <div className="event-details">{event.description}</div>}
+   {showDetails && <div className="eventDetails">{event.description}</div>}
   </li>
   )
 }

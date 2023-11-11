@@ -29,9 +29,9 @@ describe('<NumberOfEvents /> component', () => {
         const numberTextBox = NumberOfEventsComponent.queryByRole('textbox');
         await user.type(numberTextBox,'{backspace}{backspace}32');
 
-    })
+    });
     
    
-})
+});
 
 

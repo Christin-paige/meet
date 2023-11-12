@@ -11,11 +11,9 @@ const App = () => {
   const [events, setEvents] = useState([]);
   const [currentNOE, setCurrentNOE] = useState(32);
   const [allLocations, setAllLocations] = useState([]);
-  const [currentCity, setCurrentCity] = useState("See all cities");
+  const [currentCity, setCurrentCity] = useState('See all cities');
 
-  const handleCurrentNOEUpdate = (newNumber) => {
-    setCurrentNOE(newNumber);
-  }
+
 
 
 useEffect(() => {
@@ -35,7 +33,7 @@ const fetchData = async () => {
  return (
    <div className="App">
      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
-     <NumberOfEvents onUpdateNumber={handleCurrentNOEUpdate} />
+     <NumberOfEvents setCurrentNOE={setCurrentNOE} />
      <EventList events={events}/>
    </div>
  );

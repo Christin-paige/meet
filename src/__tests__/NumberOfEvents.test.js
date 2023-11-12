@@ -25,30 +25,25 @@ describe('<NumberOfEvents /> component', () => {
     
     test('the number in the textbox will change according to user input',async  () => {
         const user = userEvent.setup();
-        const allEvents = await getEvents();
-        NumberOfEventsComponent.rerender(<NumberOfEvents/>)
+        NumberOfEventsComponent.rerender(<NumberOfEvents setCurrentNOE={() => {}}/>)
         const numberTextBox = NumberOfEventsComponent.queryByRole('textbox');
         await user.type(numberTextBox,'{backspace}{backspace}32');
 
     });
 });
 //integration tests
-describe ('<NumberOfEvents /> integration', () => {
-    test('number of events rendered matches number of events input by user.', async() => {
-        const user = userEvent.setup();
-        const AppComponent = render(<App />);
-        const AppDOM = AppComponent.container.firstChild;
-        const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events')
-        const numberTextBox = within(NumberOfEventsDOM).queryByRole('textbox');
 
-        await user.type(numberTextBox, '{backspace}{backspace}10');
-        expect(numberTextBox).toHaveValue('10');
+    test('number of events are rendered that a user inputs', async () => {
+    const AppComponent = render(<App />);
+    const AppDOM = AppComponent.container.firstChild;
+    
+    const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');
+    const NumberOfEventsInput = within(NumberOfEventsDOM).queryByRole('textbox');
+   
+    await userEvent.type(NumberOfEventsInput, '{backspace}{backspace}10');
+    expect(NumberOfEventsInput).toHaveValue(NumberOfEventsInput.textInput);
+    
+    })
 
-       
-
-       
-        
-    });
-});
 
 

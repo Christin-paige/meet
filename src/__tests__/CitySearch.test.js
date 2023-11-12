@@ -6,7 +6,6 @@ import CitySearch from '../components/CitySearch';
 import { extractLocations, getEvents } from '../api';
 import App from '../App';
 
-const user = userEvent.setup();
 
 describe('<CitySearch /> component', () => {
     let CitySearchComponent;

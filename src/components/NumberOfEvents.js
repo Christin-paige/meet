@@ -1,8 +1,8 @@
 // src/components/NumberOfEvents.js
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const NumberOfEvents = ({ setCurrentNOE }) => {
+const currentNOE = ({ onUpdateNumber }) => {
 
   const [number, setNumber] = useState(32);
 
@@ -10,7 +10,8 @@ const NumberOfEvents = ({ setCurrentNOE }) => {
   const handleInputChanged = (event) => {
     const value = event.target.value;
     setNumber(value);
-  }
+    onUpdateNumber(value);
+  };
 
   return (
     <div id="number-of-events">

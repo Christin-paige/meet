@@ -17,8 +17,8 @@ describe('<NumberOfEvents /> component', () => {
     });
 
     test('default value of the input field is 32', () => {
-        const defaultValue = NumberOfEventsComponent.queryByRole('textbox',{defaultValue: 32});
-            expect(defaultValue).toBeInTheDocument();
+        const defaultValue = NumberOfEventsComponent.queryByRole('textbox');
+            expect(defaultValue).toHaveValue('32');
         
         });
 
@@ -41,7 +41,7 @@ describe('<NumberOfEvents /> component', () => {
     const NumberOfEventsInput = within(NumberOfEventsDOM).queryByRole('textbox');
    
     await userEvent.type(NumberOfEventsInput, '{backspace}{backspace}10');
-    expect(NumberOfEventsInput).toHaveValue(NumberOfEventsInput.textInput);
+    expect(NumberOfEventsInput).toHaveValue('10');
     
     })
 

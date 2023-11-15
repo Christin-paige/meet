@@ -42,7 +42,10 @@ export const extractDescriptions = (events) => {
  */
 
 export const getEvents = async () => {
-  if (window.location.href.startsWith('http://localhost')) {
+  
+
+  if (window.location.href.startsWith("http://localhost")) {
+   
     return mockData;
   }
 

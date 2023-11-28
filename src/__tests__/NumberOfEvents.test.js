@@ -1,5 +1,4 @@
 import { render, within } from '@testing-library/react';
-import { getEvents } from '../api';
 import NumberOfEvents from '../components/NumberOfEvents';
 import { userEvent } from '@testing-library/user-event';
 import App from '../App';
@@ -8,7 +7,8 @@ import App from '../App';
 describe('<NumberOfEvents /> component', () => {
     let NumberOfEventsComponent;
     beforeEach(() => {
-        NumberOfEventsComponent = render(<NumberOfEvents />)
+        NumberOfEventsComponent = render(<NumberOfEvents 
+            setErrorAlert={() => {}}/>)
     });
 
     test('contains an element with the role of textbox', () => {
@@ -25,7 +25,9 @@ describe('<NumberOfEvents /> component', () => {
     
     test('the number in the textbox will change according to user input',async  () => {
         const user = userEvent.setup();
-        NumberOfEventsComponent.rerender(<NumberOfEvents setCurrentNOE={() => {}}/>)
+        NumberOfEventsComponent.rerender(<NumberOfEvents setCurrentNOE={() => {}}
+        setErrorAlert={() => {}}
+        />);
         const numberTextBox = NumberOfEventsComponent.queryByRole('textbox');
         await user.type(numberTextBox,'{backspace}{backspace}32');
 
@@ -34,7 +36,7 @@ describe('<NumberOfEvents /> component', () => {
 //integration tests
 
     test('number of events are rendered that a user inputs', async () => {
-    const AppComponent = render(<App />);
+    const AppComponent = render(<App setErrorAlert={() => {}}/>);
     const AppDOM = AppComponent.container.firstChild;
     
     const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');

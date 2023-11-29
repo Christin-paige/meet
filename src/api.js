@@ -16,24 +16,7 @@ export const extractLocations = (events) => {
   return locations;
 };
 
-/*export const extractSummaries = (events) => {
-  const extractedSummaries = events.map((event) => event.summary);
-  const summaries = [...new Set(extractedSummaries)];
-  return summaries;
-};
 
-export const extractStartDateTime = (events) => {
-    const extractedDateTime = events.map((event) => event.DateTime);
-    const dateTime = [...new Set(extractedDateTime)];
-    return dateTime;
-}
-
-export const extractDescriptions = (events) => {
-  const extractedDescriptions = events.map((event) => event.description);
-  const descriptions = [...new Set(extractedDescriptions)];
-  return descriptions;
-};
-*/
 
 
 /**
@@ -48,7 +31,12 @@ export const getEvents = async () => {
    
     return mockData;
   }
-
+  if (!navigator.onLine) {
+    const events = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return events?JSON.parse(events):[];
+  }
+  
   const token = await getAccessToken();
 
   if (token) {
@@ -57,6 +45,8 @@ export const getEvents = async () => {
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
+      NProgress.done();
+      localStorage.setItem("lastEvents", JSON.stringify(result.events));
       return result.events;
     } else return null; 
   }

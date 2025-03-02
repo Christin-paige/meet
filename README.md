@@ -1,6 +1,55 @@
 # The Meet App
 
+<<<<<<< HEAD
 ### Meet is a serverless progressive web application (PWA) with React using a test driven development (TDD) technique.  The application uses the Google calendar API to fetch upcoming events.
+=======
+### Meet is a serverless progressive web application (WPA) with React using a test driven development (TDD) technique.  The application uses the Google calendar API to fetch upcoming events.
+
+## Features
+
+- **Filter Events By City**: Users can search for events by city.
+- **Show/Hide Event Details**: Expand/collapse event details.
+- **Specify Number of Events**: Users can control the number of displayed events.
+- **Offline Support**: Cached data is available when offline.
+- **Installable PWA**: Users can install the app on their home screen.
+- **Event Data Visualization**: Displays charts for event trends.
+
+## Getting Started
+
+### Prerequisites
+
+Before cloning and running the project, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v16 or later recommended)
+- npm (Comes with Node.js)
+
+## Installation & Setup
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/Christin-paige/meet.git
+   ```
+2. **Install dependencies:**
+```sh
+npm install
+```
+3. **Start the development server**
+```sh
+npm start
+```
+4. **Build for production**
+```sh
+npm run build
+```
+5. **Deploy to GitHub Pages**
+```sh
+npm run deploy
+```
+
+# Running the App
+### 
+
+>>>>>>> 0738a56 (updated Readme)
 
 ## Feature 1: Filter Events By City 
 ### Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities. 

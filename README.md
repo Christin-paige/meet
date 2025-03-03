@@ -50,6 +50,23 @@ npm start
 ```
 This will open the app in your default browser at http://localhost:3000/
 
+## Running Tests
+To run unit and integration tests:
+```sh
+npm test
+```
+To check coverage:
+```sh
+npm run coverage
+```
+
+## Deployment 
+This project is deployed using GitHub Pages. To deploy the latest version:
+```sh
+npm run deploy
+```
+
+# Features and Scenarios
 
 ## Feature 1: Filter Events By City 
 ### Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities. 
@@ -114,8 +131,37 @@ This will open the app in your default browser at http://localhost:3000/
 - Then a chart of all events will appear for that city.
 
   
-### How will the Meet App use serverless functions?
-- By obtaining access and authorization. 
-- Scaling automatically as the user base grows or the amount of usage increases. 
-- Create, update, and delete events.
-- Provide real-time notifications and updates based on Google Calendar.
+### Serverless Functions Usage
+Meet App uses serverless functions for:
+- Google Calendar API authentication & authorization 
+- Scaling automatically as the user base grows or the amount of usage increases
+- Creating, updating, and deleting events
+- Providing real-time notifications and updates
+
+# Technologies used
+- React - Frontend framework
+- Recharts - Data Visualization
+- Google Calendar API - Fetch events
+- Jest & Puppeteer - Testing
+- Workbox - Offline support
+- Github Pages - Deployment
+
+# Contributing
+Pull requests are welcome! To contribute:
+1. Fork the repository
+2. Create a new branch 
+```sh
+git checkout -b feature-branch-name
+```
+3. Make your changes
+4. Commit your changes
+```sh
+git commit -m "Describe your changes"
+```
+5. Push to the branch
+```sh
+git push origin feature-branch-name
+```
+6. Create a Pull Request
+
+
